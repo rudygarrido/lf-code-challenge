@@ -10,10 +10,16 @@ import javax.validation.constraints.NotEmpty;
  */
 public class Greeting implements Entity {
 
+	/**
+	 * Unique identifier
+	 */
 	@NotEmpty(groups = {EntityUpdateValidatorGroup.class})
 	private String id;
 
-	@NotEmpty
+	/**
+	 * Message of the greeting
+	 */
+	@NotEmpty(groups = {EntityUpdateValidatorGroup.class})
 	private String message;
 
 	public Greeting() {

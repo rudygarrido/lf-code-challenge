@@ -1,0 +1,26 @@
+<mat-card>
+  <form [formGroup] = "form">
+    <div class="row">
+      <mat-form-field class="col-3">
+        <input matInput placeholder="Id" formControlName="id">
+      </mat-form-field>
+  <br>
+      <mat-form-field class="col-3">
+        <input matInput placeholder="Greeting" formControlName="message">
+      </mat-form-field>
+    </div>
+  </form>
+
+  <button mat-stroked-button  [disabled]="form.get('message').value == ''"
+                              (click)="form.get('id').value  == '' ? saveGreeting() : updateGreeting()"
+                              matTooltip="Fill full form to update or only messsage to create">
+    Save Greeting</button>
+  <button mat-stroked-button [disabled]="form.get('id').value  == ''" (click)="getGreeting()"  >Check Greeting</button>
+</mat-card>
+<mat-card>
+  <h3>Greeting</h3>
+  <button mat-stroked-button (click)="loadValuesOnForm()" >Load Values to Form</button>
+  <button mat-stroked-button (click)="getDefaultGreeting()" >Default Greeting</button>
+  <h5>Id: {{id}}</h5>
+  <h5>Message: {{message}}</h5>
+</mat-card>
